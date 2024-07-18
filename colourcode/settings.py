@@ -90,7 +90,8 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-shaunadoo97-colourcoder-w0fbdz5v3nl.ws.codeinstitute-ide.net"
+    "https://8000-shaunadoo97-colourcoder-w0fbdz5v3nl.ws.codeinstitute-ide.net",
+    "https://*.herokuapp.com"
 ]
 
 # Password validation
