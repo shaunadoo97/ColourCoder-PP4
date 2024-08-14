@@ -6,4 +6,5 @@ from .models import Post
 # Create your views here.
 class ArtPostList(generic.ListView):
      queryset = Post.objects.all()
-     template_name = "artblog/art_post.html"
+     template_name = "artblog/artindex.html"
+     paginate_by = 6
