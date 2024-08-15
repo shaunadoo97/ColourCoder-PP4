@@ -4,4 +4,4 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.ArtPostList.as_view(), name='home'),
-]
+]  
