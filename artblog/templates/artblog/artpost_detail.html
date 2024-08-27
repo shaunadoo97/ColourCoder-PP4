@@ -1,1 +1,10 @@
-{% extends "artbase.html" %}
+{% extends "artbase.html" %} {% block content %}
+{% load static %}
+
+<div class="container"> 
+    <div class="d-none d-md-block col-md-6 masthead-image">
+        <img src="{% static 'images/artpost.jpg' %}" class="scale" alt="placeholder">
+    </div>
+</div>
+
+{% endblock content %}
