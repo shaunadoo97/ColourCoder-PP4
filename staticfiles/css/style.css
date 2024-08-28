@@ -1,3 +1,8 @@
 body {
     background-color: #2b2f31;
 }
+
+a.link {
+    color: white; /* Changes the link text color to white */
+    text-decoration: underline; /* Optional: Underlines the link to differentiate it */
+}
