@@ -7,7 +7,7 @@ from .models import Post
 class ArtPostList(generic.ListView):
      queryset = Post.objects.all()
      template_name = "artblog/artindex.html"
-     paginate_by = 6
+     paginate_by = 3
 
 def artpost_detail(request, slug):
     """
