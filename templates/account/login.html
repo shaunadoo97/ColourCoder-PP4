@@ -16,7 +16,7 @@
         first.{% endblocktrans %}
       </p>  
       <div">
-      <form class="login" method="POST" action="{% url 'account_login' %}">
+      <form style="color: white;" class="login" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
           {{ form.as_p }}
           {% if redirect_field_value %}
