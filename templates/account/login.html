@@ -15,7 +15,7 @@
         If you have not created an account yet then please click here <a class="link" href="{{ signup_url}}">Sign Up!</a>
         first.{% endblocktrans %}
       </p>  
-      <div">
+      <div>
       <form style="color: white;" class="login" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
           {{ form.as_p }}
