@@ -38,3 +38,30 @@ As a user , I would like to
 These are the features I've included on my site. 
 
 
+## Wireframes 
+
+
+## Deployment 
+My project was deployed by using the Github pages.
+
+In order to get this done, here are the steps:
+
+Firstly, go to the menu, and click the preffered repository
+
+Click the settings button which can be easily identified by the gear icon in the menu right hand side.
+
+On the left hand side, scroll down until pages are seen in the Code and automation.
+
+In the build and deployment section, click the Branch and a dropdown menu will appear, and chose the main branch
+
+Click save after this step and a confirmation of deployment should be confirmed shortly.
+
+To know this, a green colored box with message is received saying "Your site is published at" with a web address. My website is live at :
+
+
+## Credits and Codes
+### Codes 
+I've used the Therefore I Blog to help guide me through and to grt started on PP4 
+I've also used Daisy's Walkthrough https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy
+
+Unfortunately I could not complete my project the way I wanted it to. 
