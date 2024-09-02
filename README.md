@@ -8,8 +8,6 @@ This site is created for the users who can scroll down looking at   Art or Wishe
 ## Goals as a Site Owner 
 This site is all about showing off your artwork. 
 
-## User Experience 
-
 ## User Stories 
 As a user , I would like to
 - View a page of art works displayed on screen
