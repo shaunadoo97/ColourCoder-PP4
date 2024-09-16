@@ -1,7 +1,9 @@
 {% extends 'artbase.html' %} 
 {% block content %}
 {% load crispy_forms_tags %}
+{% if user.is_authenticated %}
 
+<div class="container">
 <h1>Create Post</h1>
 
 <form method="post" enctype="multipart/form-data">
@@ -9,5 +11,9 @@
     {{ form|crispy }}
     <button type="submit">Submit</button>
 </form>
+    {% else %}
+    <p  style="color: white;">Please Sign in to submit a post!</p>
+    {% endif %} 
+</div>
 
 {% endblock content %}
