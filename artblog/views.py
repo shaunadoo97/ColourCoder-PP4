@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from django.views import generic
+from django.views import generic, View
 from .models import Post
+from .forms import PostForm
 
 
 
@@ -16,8 +17,8 @@ def artpost_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments= post.comments.all().order_by("created_on")
     comment_count = post.comments.filter(approved=True).count()
-    comment_form = CommentForm()
-
+    comment_form = CommentForm() 
+    
     return render(
         request,
         "blog/artpost_detail.html",
@@ -27,3 +28,25 @@ def artpost_detail(request, slug):
          "comment_form": comment_form,},
         
     )
+
+class ArtSubmissionList(generic.ListView):
+     model = Post
+     queryset = Post.objects.filter(status=1).order_by("created_on")
+     template_name = "submit_art.html"
+     paginate_by = 3 
+
+class SubmitArt(View):
+     def get(self, request):
+          form = PostForm()
+          return render(request, 'submit_art.html', {'form': form})
+
+     def post(self, request):
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.success(request, 'Your Art has been submitted!')
+            return redirect('home')
+            return render(request, 'submit_art.html', {'form': form})
+    
