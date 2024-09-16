@@ -4,16 +4,19 @@
 {% if user.is_authenticated %}
 
 <div class="container">
-<h1>Create Post</h1>
+<h1>Submit Your Art!</h1>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|crispy }}
     <button type="submit">Submit</button>
 </form>
+<div class="container">
     {% else %}
-    <p  style="color: white;">Please Sign in to submit a post!</p>
+    <p  style="color: white;">Please Sign in to Submit a Post!</p>
     {% endif %} 
+</div>
+
 </div>
 
 {% endblock content %}
