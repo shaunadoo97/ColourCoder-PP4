@@ -19,18 +19,13 @@ def artpost_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments= post.comments.all().order_by("created_on")
     comment_count = post.comments.filter(approved=True).count()
-    comment_form = CommentForm() 
-    
     return render(
         request,
-        "blog/artpost_detail.html",
-        {"post": post,
-         "comments": comments,
-         "comment_count": comment_count, 
-         "comment_form": comment_form,},
-        
+        "artblog/artpost_detail.html",
+        {"post": post},
     )
 
+    
 class ArtSubmissionList(generic.ListView):
      model = Post
      queryset = Post.objects.filter(status=1).order_by("created_on")
