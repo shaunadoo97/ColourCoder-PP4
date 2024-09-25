@@ -1,5 +1,5 @@
-from django import forms
 from .models import Comment, Post
+from django import forms
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -14,3 +14,5 @@ class PostForm(forms.ModelForm):
 
 
     featured_image = forms.ImageField(required=True)
+
+
