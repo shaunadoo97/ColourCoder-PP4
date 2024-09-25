@@ -16,3 +16,7 @@ class PostForm(forms.ModelForm):
     featured_image = forms.ImageField(required=True)
 
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('body',)
