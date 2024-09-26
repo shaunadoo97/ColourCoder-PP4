@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.ArtPostList.as_view(), name='home'),
     path('submit_art/', views.SubmitArt.as_view(), name='submit_art'),
     path('<slug:slug>/', views.artpost_detail, name='artpost_detail'),
+     path('<slug:slug>/edit_comment/<int:comment_id>', views.comment_edit, name='comment_edit'),
 ]

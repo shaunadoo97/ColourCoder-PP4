@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.views import generic, View
+from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 from .forms import PostForm
 
@@ -27,6 +28,10 @@ def artpost_detail(request, slug):
             comment.author = request.user
             comment.post = post
             comment.save()
+            messages.add_message(
+               request, messages.SUCCESS,
+               'Comment Submitted, wait for approval!'
+            )
 
     comment_form = CommentForm()
 
@@ -41,6 +46,21 @@ def artpost_detail(request, slug):
              },
     )
 
+
+def comment_edit(request, slug, comment_id):
+     if request.method == "POST":
+
+          queryset = Post.objects.filter(status=1)
+          post = get_object_or_404(queryset, slug=slug)
+          comment = get_object_or_404(Comment, pk=comment_id)
+
+          if comment_form.is_valid() and comment.author == request.user:
+               comment = comment_form.save(commit=False)
+               comment.pot = post 
+               comment.approved = False
+               comment.save()
+               messages.add_messages(request, messages.SUCCESS, 'Comment has been updated!')
+          else: messages.add_message(request, message.ERROR, 'Error Updating your comment!')
     
 class ArtSubmissionList(generic.ListView):
      model = Post
