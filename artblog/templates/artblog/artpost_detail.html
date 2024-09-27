@@ -9,7 +9,9 @@
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title"> Name of Artwork: {{ post.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}
+                  <a href = "{% url 'update_post' post.slug %}">Edit</a>
+                </p>
             </div>
           
         </div>

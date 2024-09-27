@@ -11,4 +11,10 @@
     {{ form|crispy }}
     <button type="submit">Update</button>
 </form>
+{% else %}
+<p  style="color: white;">Please Sign in to Edit!</p>
+{% endif %} 
+</div>
+
+
 {% endblock content %}
