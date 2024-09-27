@@ -46,21 +46,6 @@ def artpost_detail(request, slug):
              },
     )
 
-
-def comment_edit(request, slug, comment_id):
-     if request.method == "POST":
-
-          queryset = Post.objects.filter(status=1)
-          post = get_object_or_404(queryset, slug=slug)
-          comment = get_object_or_404(Comment, pk=comment_id)
-
-          if comment_form.is_valid() and comment.author == request.user:
-               comment = comment_form.save(commit=False)
-               comment.pot = post 
-               comment.approved = False
-               comment.save()
-               messages.add_messages(request, messages.SUCCESS, 'Comment has been updated!')
-          else: messages.add_message(request, message.ERROR, 'Error Updating your comment!')
     
 class ArtSubmissionList(generic.ListView):
      model = Post
@@ -82,4 +67,9 @@ class SubmitArt(View):
             messages.success(request, 'Your Art has been submitted!')
             return redirect('home')
             return render(request, 'submit_art.html', {'form': form})
+
+class UpdatePost(View):
+     model = Post
+     template_name = 'update_post.html'
+     fields = ['title', 'slug', 'author', 'content', 'image']
     
