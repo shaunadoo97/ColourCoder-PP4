@@ -92,6 +92,14 @@ class UpdatePost(View):
         form.instance.slug = slugify(form.instance.title)
         return super().form_valid(form)
 
+class DeleteArtwork(View):
+      def get(self, request, slug):
+        post = get_object_or_404(Post, slug=slug, author=request.user)
+        return render(request, 'delete_post.html', {'post': post})
 
+      def post(self, request, slug):
+         post = get_object_or_404(Post, slug=slug, author=request.user)
+         post.delete()
+         return redirect('home')
 
 

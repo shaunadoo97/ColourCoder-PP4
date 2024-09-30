@@ -1,0 +1,23 @@
+{% extends 'artbase.html' %} 
+{% block content %}
+{% load crispy_forms_tags %}
+{% if user.is_authenticated %}
+
+
+<h1 style="color: white;">Delete Your Post</h1>
+<h3> Delete: {{ post.title }}</h3>
+<div class="container">
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <strong style="color: white">Are you sure? This cannot be undone!</strong>
+        <button type="submit">Delete</button>
+        {% else %}
+        <p class="access-denied card-text">You are not allowed here!</p>
+        {% endif %}
+    </form>
+    </div>
+    
+    
+    {% endblock content %}
