@@ -15,11 +15,10 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                  alt="placeholder image">
+                                <img class="card-img-top" src="{% static 'images/artpost.jpg' %}"
+                                    alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}"
-                                  alt="{{ post.title }}">
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
                                 {% endif %}
                             </div>
                             <a href="{% url 'artpost_detail' post.slug %}" class="post-link">
@@ -31,7 +30,7 @@
                             </p>
                             <div class="image-flash">
                                     <p class="author">Artist: {{ post.author }}</p>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
